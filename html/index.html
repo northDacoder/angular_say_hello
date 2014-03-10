@@ -13,20 +13,27 @@
 
 
 	<body> 	
+
+		<!-- Define our angular app -->
 		<div ng-app="myApp">
 
+			<!-- Add the controller for this app -->
 			<div ng-controller="myController">
 		
+				<!-- Add input with todo model to get user input & pass to controller -->
 				<input ng-model="todo">
 				<div>{{ todo }}</div>
 				
+				<!-- Add ng-click function to add item to the list -->
 				<button ng-click="addToList();">Add to list</button>
 
 				<div>My Todo List</div>
 
+				<!-- Add ng-repeat directive to iterate over todo list & display in list -->
 				<div ng-repeat="item in list">
 					{{ item }}
 				</div>
+
 				
 			</div>
 
