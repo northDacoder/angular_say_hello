@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+<head>
+	<link rel="stylesheet" href="css/app.css">
+
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controllers/myController.js"></script>
+
+</head>
+
+<body> 	
+
+
+	<!-- PROJECTS PAGE (HOME) -->
+	<div data-role="page" data-theme="a" data-ng-controller="ProjectsController" id="projecthome">
+		
+		<div data-role="header" data-theme="b">
+			<h1>Projects</h1>
+		</div>
+		
+		<div data-role="content" >
+			<a href="#devhome" data-role="button" data-theme="a">Developer Portal</a>
+			<br />
+			<input type="text" data-ng-model="findproject" placeholder="Search for projects..." /> {{ findproject }}
+			
+			<ul data-role="listview" data-inset="true" data-theme="b">
+				<li data-ng-repeat="project in projects | filter:findproject | orderBy:'tag'" > 
+					<a href="">
+						{{ project.company }} - {{ project.type }} - {{ project.language }}
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<h2>Johnny Ryan</h2>
+		</div>
+
+	</div>
+
+
+	<!-- DEVELOPER PAGE -->
+	<div data-role="page" data-theme="a" data-ng-controller="DevelopersController" id="devhome">
+		
+		<div data-role="header" data-theme="b">
+			<h1>Developers</h1>
+		</div>
+		
+		<div data-role="content">
+			<a href="#projecthome" data-role="button" data-theme="a">MVP Portal</a>
+
+			<br />
+			<input type="text" data-ng-model="finddev" placeholder="Find a developer..." /> {{ finddev }}
+		
+			<ul data-role="listview" data-inset="true" data-theme="b">
+				<li data-ng-repeat="dev in developers | filter:finddev | orderBy:'lastname'" > 
+					<a href="">
+						{{ dev.firstname }} {{ dev.lastname }}  |  {{ dev.language }} 
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+
+
+<script>
+
+	// Projects $scope
+	function ProjectsController($scope){
+		$scope.projects = [
+			{ company: 'Zappos',  type: 'front-end', language: 'JavaScript' },
+			{ company: 'Uber',  type: 'front-end', language: 'JavaScript' },
+			{ company: 'Spotify',  type: 'front-end', language: 'JavaScript' },
+			{ company: 'Pangea, Inc.',  type: 'back-end', language: 'JavaScript' },
+			{ company: 'CandyCrush',  type: 'front-end', language: 'JavaScript' },
+			{ company: 'Google',  type: 'front-end', language: 'JavaScript' }
+		];
+	}
+
+	// Developers $scope 
+	function DevelopersController($scope){ 
+		$scope.developers = [
+			{ firstname: 'John',      lastname: 'Ryan', 			language: 'JavaScript' },
+			{ firstname: 'Geoff',     lastname: 'Boss', 			language: 'Python' },
+			{ firstname: 'Rudy',      lastname: 'Mutter', 			language: 'JavaScript' },
+			{ firstname: 'Yash',      lastname: 'Saxena', 			language: 'JavaScript' },
+			{ firstname: 'Neil',      lastname: 'Aboshamaa', 		language: 'Python' },
+			{ firstname: 'Terrel',    lastname: 'Owens', 			language: 'CSS' },
+			{ firstname: 'Tony',      lastname: 'Hawk', 			language: 'CSS' },
+			{ firstname: 'John',      lastname: 'Jovi', 			language: 'Django' },
+			{ firstname: 'Marv',      lastname: 'Fizzbuzzerson', 	language: 'Django' },
+			{ firstname: 'John',      lastname: 'Ralphio', 			language: 'Python' },
+			{ firstname: 'Billy',     lastname: 'Enforce', 			language: 'JavaScript' },
+			{ firstname: 'Yasholito', lastname: 'Takimoto', 		language: 'Django' },
+			{ firstname: 'Bruce',     lastname: 'Springsteen', 		language: 'CSS' },
+			{ firstname: 'Neil',      lastname: 'Young', 			language: 'Python' },
+			{ firstname: 'Wayne',     lastname: 'Gretzky', 			language: 'Django' },
+			{ firstname: 'Andy',      lastname: 'Sandberg', 		language: 'CSS' },
+			{ firstname: 'James',     lastname: 'Johns', 			language: 'Python' },
+			{ firstname: 'Stephen',   lastname: 'Yetiville', 		language: 'Django' },
+			{ firstname: 'Roger',     lastname: 'Federer', 			language: 'CSS' }
+		];
+	}
+
+</script>
+
+
+</html>
