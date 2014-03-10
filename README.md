@@ -1,4 +1,4 @@
 angular_todo_list
 =================
 
-Simple todo list built with angularJS during YetiHQ Angular day 1
+Simple angular app to demonstrate scope, through different buttons being clicked
