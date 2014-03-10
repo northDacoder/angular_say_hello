@@ -6,6 +6,6 @@ app.controller('myController', function($scope){
 	$scope.addToList = function() {
 		$scope.list.push($scope.todo); 
 		$scope.list; 
-		console.log($scope.list);
+		// console.log($scope.list);
 	}
 });
