@@ -1,3 +1,1 @@
-app.controller('myController', function($scope){
-
-});
+var app = angular.module('myApp', []);
