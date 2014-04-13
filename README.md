@@ -1,4 +1,4 @@
 angular_todo_list
 =================
 
-Simple angular app to demonstrate scope, through different buttons being clicked
+This is an application I built using AngularJS.  I built this during my RocketU Developer Program in San Francisco, CA. 
